@@ -1,9 +1,20 @@
-import QtQuick
-import QtQuick.Window
+import QtQuick 2.0
 
-Window {
-    width: 640
-    height: 480
-    visible: true
-    title: qsTr("Hello World")
+Rectangle {
+  id:root
+  width:400
+  height:300
+  Timer {
+    interval: 500
+    running: true
+    repeat: true
+    onTriggered: display.text = Qt.formatTime(new Date(),"hh:mm:ss")
+  }
+  Text {
+    id: display
+    font.family: "ubuntu"
+    font.bold:true
+    font.pointSize:28
+    anchors.centerIn:parent
+  }
 }
